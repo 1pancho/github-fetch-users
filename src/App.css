@@ -1,12 +1,8 @@
 #root {
   background-color: #fafafa;
-
   width: 100vw;
   height: 100vh;
   color: var(--Grey, #000);
-}
-
-.body {
 }
 
 /* fonts */
@@ -70,6 +66,7 @@ h6 {
   margin-block-start: 0;
   margin-block-end: 0;
 }
+
 p {
   font-family: 'Inter', sans-serif;
   font-size: 18px;
@@ -77,6 +74,8 @@ p {
   font-weight: 400;
   margin-block-start: 0;
   margin-block-end: 0;
+  margin-bottom: 0;
+  margin: 0;
 }
 
 .nav1 {
@@ -98,6 +97,7 @@ p {
   justify-content: center;
   align-items: center;
 }
+
 .nothing-found {
   display: flex;
   flex-direction: column;
@@ -126,9 +126,10 @@ p {
   width: 905px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 32px;
+  gap: 16px;
   flex-shrink: 0;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .repos-container {
@@ -150,11 +151,21 @@ p {
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;
+  margin-bottom: 0;
+}
+
+.repo p {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.repo h5 {
+  color: #2862E3;
+  margin-bottom: 0;
 }
 
 .avatar-item {
   display: flex;
-  align-items: center;
   gap: 12px;
 }
 

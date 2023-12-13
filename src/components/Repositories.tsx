@@ -1,7 +1,16 @@
-import React from 'react'
+import { FC } from 'react'
+import '../App.css'
+import { IRepo } from '../models/models';
 
-const Repos = ({ repos, loading }) => {
-  if (loading) {
+
+type Props = {
+  repos: IRepo[];
+  loading: boolean;
+}
+
+const Repositories: FC<Props> = ({ repos: data, loading: isLoading }) => {
+
+  if (isLoading) {
     return (
       <div className="repos-content">
         <h5>Loading...</h5>
@@ -11,13 +20,13 @@ const Repos = ({ repos, loading }) => {
 
   return (
     <div>
-      {repos && repos.length > 0 ? (
+      {data && data.length > 0 ? (
         <div className="repos-content">
-          {repos.map((repo) => (
+          {data.map((repo) => (
             <div key={repo.id} className="repos-container">
               <div className="repo">
                 <h5>{repo.name}</h5>
-                <p className="repo-description">{repo.description}</p>
+                <p>{repo.description}</p>
               </div>
             </div>
           ))}
@@ -29,4 +38,4 @@ const Repos = ({ repos, loading }) => {
   )
 }
 
-export default Repos
+export default Repositories;
