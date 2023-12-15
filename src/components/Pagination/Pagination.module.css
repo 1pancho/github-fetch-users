@@ -1,0 +1,7 @@
+.reposContainerPagination {
+  display: flex;
+  align-items: flex-end;
+  width: 905px;
+  gap: 24px;
+  flex-direction: column;
+}

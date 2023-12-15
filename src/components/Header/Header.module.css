@@ -1,0 +1,9 @@
+.inputGroup {
+  border-right: none;
+  background-color: white;
+}
+
+.formControl {
+  border-left: none;
+  width: 500px;
+}

@@ -1,12 +1,8 @@
 #root {
   background-color: #fafafa;
-
   width: 100vw;
   height: 100vh;
   color: var(--Grey, #000);
-}
-
-.body {
 }
 
 /* fonts */
@@ -70,6 +66,7 @@ h6 {
   margin-block-start: 0;
   margin-block-end: 0;
 }
+
 p {
   font-family: 'Inter', sans-serif;
   font-size: 18px;
@@ -77,6 +74,8 @@ p {
   font-weight: 400;
   margin-block-start: 0;
   margin-block-end: 0;
+  margin-bottom: 0;
+  margin: 0;
 }
 
 .nav1 {
@@ -98,6 +97,7 @@ p {
   justify-content: center;
   align-items: center;
 }
+
 .nothing-found {
   display: flex;
   flex-direction: column;
@@ -106,68 +106,13 @@ p {
   width: 280px;
 }
 
-.content-container {
-  display: flex;
-  width: 1512px;
-  padding: 64px 64px;
-  justify-content: space-between;
-  align-items: flex-start;
+.nothing-found h6 {
+  font-size: 18px;
+  text-align: center;
 }
 
-.avatar {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.repos-content {
-  display: flex;
-  width: 905px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 32px;
-  flex-shrink: 0;
-  padding-top: 20px;
-}
-
-.repos-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  align-self: stretch;
-}
-
-.repo {
-  display: flex;
-  height: 132px;
-  padding: 0px 42px;
-  border-radius: 4px;
-  background: #fff;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 16px;
-  align-self: stretch;
-}
-
-.avatar-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.avatar-followers {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.repos-container-pagination {
-  display: flex;
-  align-items: flex-end;
-  width: 905px;
-  gap: 24px;
-  flex-direction: column;
+.bsSearch {
+  width: 96px;
+  height: 96px;
+  color: #878888;
 }

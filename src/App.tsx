@@ -1,20 +1,29 @@
-import { useState, useContext, createContext } from 'react'
-import NavBar from './Navbar'
-import StartScreen from './StartScreen'
+import { useState, FC } from 'react'
 import './App.css'
-import GithubSearch from './GithubSearch'
+import './input.css'
+import Content from './components/Content/Content'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { BsSearch } from 'react-icons/bs'
+import { useDebounce } from './hooks/useDebounce'
+import Header from './components/Header/Header'
 
-export const UserContext = createContext()
-
-function App() {
+const App: FC = () => {
   const [userName, setUserName] = useState('')
+  const debounced = useDebounce(userName)
 
   return (
     <>
-      <UserContext.Provider value={{ userName, setUserName }}>
-        <NavBar />
-        {userName.length > 0 ? <GithubSearch /> : <StartScreen />}
-      </UserContext.Provider>
+      <Header userName={userName} setUserName={setUserName} />
+      {debounced.length > 0 ? (
+        <Content userName={debounced} />
+      ) : (
+        <div className="nothing-found-container">
+          <div className="nothing-found">
+            <BsSearch className="bsSearch"></BsSearch>
+            <h6>Start with searching a Github user</h6>
+          </div>
+        </div>
+      )}
     </>
   )
 }

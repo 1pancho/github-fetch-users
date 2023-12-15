@@ -1,26 +1,17 @@
-import React, { useContext } from 'react'
-import {
-  Container,
-  Form,
-  Nav,
-  Navbar,
-  InputGroup,
-} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Github from './assets/github.svg'
+import Github from '../../assets/github.svg'
 import { ReactSVG } from 'react-svg'
 import { BsSearch } from 'react-icons/bs'
-import { UserContext } from './App'
+import { Container, Form, Nav, Navbar, InputGroup } from 'react-bootstrap'
+import { FC } from 'react'
+import styles from './Header.module.css'
 
-function NavBar() {
-  const { userName, setUserName } = useContext(UserContext)
+type Props = {
+  userName: string
+  setUserName: (value: string) => void
+}
 
-  const handleInputChange = (e) => {
-    e.preventDefault()
-    setUserName(e.target.value)
-    console.log(userName)
-  }
-
+const Header: FC<Props> = ({ userName, setUserName }) => {
   return (
     <Navbar expand="lg" className="bg-primary">
       <Container fluid>
@@ -36,19 +27,16 @@ function NavBar() {
           >
             <Form>
               <InputGroup className="w-auto">
-                <InputGroup.Text
-                  className="bg-white"
-                  style={{ borderRight: 'none' }}
-                >
+                <InputGroup.Text className={styles.inputGroup}>
                   <BsSearch style={{ color: 'grey' }} />
                 </InputGroup.Text>
                 <Form.Control
                   style={{ borderLeft: 'none', width: '500px' }}
-                  type="search"
+                  type="text"
                   placeholder="Enter github username"
                   aria-label="Search"
                   value={userName}
-                  onChange={handleInputChange}
+                  onChange={(e) => setUserName(e.target.value)}
                 />
               </InputGroup>
             </Form>
@@ -59,4 +47,4 @@ function NavBar() {
   )
 }
 
-export default NavBar
+export default Header
