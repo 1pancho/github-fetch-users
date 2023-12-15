@@ -1,23 +1,23 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react'
+import styles from './Pagination.module.css'
+import usePagination from '../../hooks/usePagination'
 
 type Props = {
-  reposPerPage: number;
-  totalRepos: number;
-  paginate: (value: number) => void;
+  reposPerPage: number
+  totalRepos: number
+  paginate: (value: number) => void
 }
 
 const Pagination: FC<Props> = ({ reposPerPage, totalRepos, paginate }) => {
-  const pageNumbers = [];
-
-  for (let i = 1; i <= Math.ceil(totalRepos / reposPerPage); i++) {
-    pageNumbers.push(i)
+  const pageNumbers = usePagination(totalRepos, reposPerPage);
+  if (!pageNumbers) {
+    return null;
   }
-
   return (
-    <div className='repos-container-pagination'>
+    <div className={styles.reposContainerPagination}>
       <ul className="pagination">
-        {pageNumbers.map((number) => (
+        {pageNumbers?.map((number) => (
           <li className="page-item" key={number}>
             <a href="!#" className="page-link" onClick={() => paginate(number)}>
               {number}
